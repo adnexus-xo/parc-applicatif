@@ -13,20 +13,17 @@ function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const res = await api.get('/utilisateurs');
-      const user = res.data.find(
-        (u) => u.email === form.email && u.motDePasse === form.motDePasse
-      );
-      if (user) {
-        localStorage.setItem('user', JSON.stringify(user));
-        navigate('/');
-      } else {
-        setError('Email ou mot de passe incorrect');
-      }
-    } catch (error) {
-      setError('Erreur de connexion');
-    }
+    
+	try {
+  const response = await api.post('/utilisateurs/login', ...);
+  // ...
+} catch (error) {
+  console.log("ERREUR COMPLETE:", error);
+  console.log("ERREUR MESSAGE:", error.message);
+  console.log("ERREUR RESPONSE:", error.response);
+  alert("Erreur: " + error.message);
+}
+
   };
 
   return (
