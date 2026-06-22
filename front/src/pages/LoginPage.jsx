@@ -15,7 +15,10 @@ function LoginPage() {
     e.preventDefault();
     
 	try {
-  const response = await api.post('/utilisateurs/login', ...);
+  const response = await api.post('/utilisateurs/login', {
+    email: form.email,
+    motDePasse: form.motDePasse
+  });
   // ...
 } catch (error) {
   console.log("ERREUR COMPLETE:", error);
@@ -23,7 +26,6 @@ function LoginPage() {
   console.log("ERREUR RESPONSE:", error.response);
   alert("Erreur: " + error.message);
 }
-
   };
 
   return (
