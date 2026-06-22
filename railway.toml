@@ -1,6 +1,6 @@
 [build]
 builder = "nixpacks"
-buildCommand = "cd back/parc-applicatif && ./mvnw clean package -DskipTests"
+buildCommand = "cd back/parc-applicatif && bash mvnw clean package -DskipTests"
 
 [deploy]
 startCommand = "cd back/parc-applicatif && java -jar target/*.jar"
